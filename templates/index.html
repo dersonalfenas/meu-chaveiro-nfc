@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+
+{% block title %}NFC Connect - Seu Cartão Digital Inteligente{% endblock %}
+
+{% block content %}
+<section class="hero-section">
+    <div class="container">
+        <div class="row align-items-center min-vh-100">
+            <div class="col-lg-6">
+                <div class="hero-content">
+                    <span class="badge bg-primary bg-opacity-10 text-primary px-4 py-2 rounded-pill mb-3">
+                        <i class="fas fa-rocket me-2"></i> Inovação em Networking
+                    </span>
+                    <h1 class="display-3 fw-bold mb-4">
+                        Transforme seu <span class="text-gradient">Chaveiro</span> em Cartão de Visitas Digital
+                    </h1>
+                    <p class="lead text-muted mb-4">
+                        Encoste seu celular e compartilhe seus contatos instantaneamente. 
+                        Moderno, prático e sustentável.
+                    </p>
+                    <div class="d-flex flex-wrap gap-3">
+                        <a href="{{ url_for('auth.registro') }}" class="btn btn-primary btn-lg rounded-pill px-5">
+                            <i class="fas fa-play me-2"></i> Começar Agora
+                        </a>
+                        <a href="{{ url_for('main.planos') }}" class="btn btn-outline-primary btn-lg rounded-pill px-5">
+                            Ver Planos
+                        </a>
+                    </div>
+                    <div class="mt-4 d-flex gap-4">
+                        <div>
+                            <span class="fw-bold fs-4 text-primary">500+</span>
+                            <p class="text-muted small">Clientes Ativos</p>
+                        </div>
+                        <div>
+                            <span class="fw-bold fs-4 text-primary">1000+</span>
+                            <p class="text-muted small">Tags Vendidas</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 d-none d-lg-block">
+                <div class="hero-image text-center">
+                    <div class="phone-mockup">
+                        <i class="fas fa-phone-alt fa-6x text-primary opacity-25"></i>
+                        <div class="nfc-wave">
+                            <i class="fas fa-wifi fa-3x text-primary"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="text-center mb-5">
+            <span class="badge bg-primary bg-opacity-10 text-primary px-4 py-2 rounded-pill">Como Funciona</span>
+            <h2 class="display-5 fw-bold mt-3">Em 3 Passos Simples</h2>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm hover-card text-center p-4">
+                    <div class="step-number">1</div>
+                    <i class="fas fa-user-plus fa-3x text-primary mb-3"></i>
+                    <h5>Crie sua Conta</h5>
+                    <p class="text-muted">Cadastre-se gratuitamente e escolha seu plano</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm hover-card text-center p-4">
+                    <div class="step-number">2</div>
+                    <i class="fas fa-edit fa-3x text-primary mb-3"></i>
+                    <h5>Personalize sua Tag</h5>
+                    <p class="text-muted">Adicione nome, telefone, redes sociais e mais</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm hover-card text-center p-4">
+                    <div class="step-number">3</div>
+                    <i class="fas fa-share-alt fa-3x text-primary mb-3"></i>
+                    <h5>Compartilhe!</h5>
+                    <p class="text-muted">Encoste o celular e conecte-se instantaneamente</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
