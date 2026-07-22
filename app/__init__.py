@@ -4,15 +4,16 @@ from flask_login import LoginManager
 from config import Config
 import os
 
-# Criar as instâncias fora da função
 db = SQLAlchemy()
 login_manager = LoginManager()
 
 def create_app():
-    app = Flask(__name__)
+    # Configurar o caminho absoluto para a pasta templates
+    template_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'templates')
+    
+    app = Flask(__name__, template_folder=template_dir)
     app.config.from_object(Config)
     
-    # Inicializar extensões com o app
     db.init_app(app)
     login_manager.init_app(app)
     login_manager.login_view = 'auth.login'
