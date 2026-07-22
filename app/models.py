@@ -1,9 +1,7 @@
-from flask_sqlalchemy import SQLAlchemy
+from app import db
 from flask_login import UserMixin
 from datetime import datetime, timedelta
 from werkzeug.security import generate_password_hash, check_password_hash
-
-db = SQLAlchemy()
 
 class Usuario(UserMixin, db.Model):
     __tablename__ = 'usuarios'
@@ -47,16 +45,16 @@ class Usuario(UserMixin, db.Model):
         if not assinatura:
             return 0
         if assinatura.plano == 'mensal':
-            return 3  # Plano mensal: 3 tags
+            return 3
         elif assinatura.plano == 'anual':
-            return 10  # Plano anual: 10 tags
+            return 10
         return 0
 
 class Tag(db.Model):
     __tablename__ = 'tags'
     
     id = db.Column(db.Integer, primary_key=True)
-    uid = db.Column(db.String(50), unique=True, nullable=False)  # ID único para NFC
+    uid = db.Column(db.String(50), unique=True, nullable=False)
     nome = db.Column(db.String(100), nullable=False)
     cargo = db.Column(db.String(100))
     empresa = db.Column(db.String(100))
@@ -74,28 +72,18 @@ class Tag(db.Model):
     criado_em = db.Column(db.DateTime, default=datetime.utcnow)
     atualizado_em = db.Column(db.DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
     usuario_id = db.Column(db.Integer, db.ForeignKey('usuarios.id'))
-    
-    def renovar(self, nova_data):
-        self.data_expiracao = nova_data
-        self.ativo = True
-        db.session.commit()
-    
-    def expirou(self):
-        if self.data_expiracao:
-            return self.data_expiracao < datetime.utcnow()
-        return False
 
 class Assinatura(db.Model):
     __tablename__ = 'assinaturas'
     
     id = db.Column(db.Integer, primary_key=True)
     usuario_id = db.Column(db.Integer, db.ForeignKey('usuarios.id'))
-    plano = db.Column(db.String(20))  # 'mensal' ou 'anual'
+    plano = db.Column(db.String(20))
     valor = db.Column(db.Float)
     data_inicio = db.Column(db.DateTime, default=datetime.utcnow)
     data_fim = db.Column(db.DateTime)
     pago = db.Column(db.Boolean, default=False)
-    pagamento_id = db.Column(db.String(100))  # ID do pagamento no Mercado Pago
+    pagamento_id = db.Column(db.String(100))
     criado_em = db.Column(db.DateTime, default=datetime.utcnow)
     
     def gerar_data_fim(self):
