@@ -1,5 +1,6 @@
 from app import create_app, db
 from app.models import Usuario, Tag, Assinatura
+import os
 
 app = create_app()
 
