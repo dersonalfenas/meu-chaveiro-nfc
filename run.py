@@ -1,5 +1,5 @@
 from app import create_app, db
-from app.models import Usuario, Tag, Assinatura, ConfiguracaoSite
+from app.models import Usuario, Tag, Assinatura
 
 app = create_app()
 
@@ -20,4 +20,4 @@ with app.app_context():
         print('✅ Admin criado: admin@admin.com / senha: admin123')
 
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0', port=5000)
+    app.run(debug=False, host='0.0.0.0', port=5000)
