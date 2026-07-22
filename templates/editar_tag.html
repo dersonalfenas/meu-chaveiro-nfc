@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+{% block title %}Editar Tag{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="mb-0">✏️ Editar Tag</h4>
+            </div>
+            <div class="card-body">
+                <form method="POST">
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Nome *</label>
+                            <input type="text" name="nome" class="form-control" value="{{ tag.nome }}" required>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Cargo</label>
+                            <input type="text" name="cargo" class="form-control" value="{{ tag.cargo or '' }}">
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Empresa</label>
+                        <input type="text" name="empresa" class="form-control" value="{{ tag.empresa or '' }}">
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Telefone</label>
+                            <input type="text" name="telefone" class="form-control" value="{{ tag.telefone or '' }}">
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">WhatsApp</label>
+                            <input type="text" name="whatsapp" class="form-control" value="{{ tag.whatsapp or '' }}">
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Email</label>
+                        <input type="email" name="email" class="form-control" value="{{ tag.email or '' }}">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Site</label>
+                        <input type="url" name="site" class="form-control" value="{{ tag.site or '' }}">
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Instagram</label>
+                            <input type="text" name="instagram" class="form-control" value="{{ tag.instagram or '' }}">
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">LinkedIn</label>
+                            <input type="text" name="linkedin" class="form-control" value="{{ tag.linkedin or '' }}">
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Cor Principal</label>
+                        <input type="color" name="cor_primaria" class="form-control form-control-color" value="{{ tag.cor_primaria or '#667eea' }}">
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Salvar Alterações</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
