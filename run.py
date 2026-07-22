@@ -18,6 +18,7 @@ with app.app_context():
         db.session.add(admin)
         db.session.commit()
         print('✅ Admin criado: admin@admin.com / senha: admin123')
+        print('✅ Banco de dados configurado com sucesso!')
 
 if __name__ == '__main__':
     app.run(debug=False, host='0.0.0.0', port=5000)
