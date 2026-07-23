@@ -1,0 +1,1 @@
+console.log('NFC Connect carregado com sucesso!');

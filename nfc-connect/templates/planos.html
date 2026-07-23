@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container py-5 mt-4">
+    <div class="text-center mb-5">
+        <h1 class="display-5 fw-bold">💰 Escolha seu Plano</h1>
+        <p class="text-muted">Comece gratuitamente ou escolha um plano premium</p>
+    </div>
+    <div class="row g-4">
+        <div class="col-md-4">
+            <div class="card border-0 shadow-sm h-100 pricing-card text-center p-4">
+                <h4 class="fw-bold">🔥 Grátis</h4>
+                <h2 class="display-4 fw-bold">R$ 0</h2>
+                <p class="text-muted">para sempre</p>
+                <ul class="list-unstyled">
+                    <li>✅ 1 tag ativa</li>
+                    <li>✅ Perfil público</li>
+                    <li>✅ Edição ilimitada</li>
+                </ul>
+                <a href="{{ url_for('registro') }}" class="btn btn-outline-primary rounded-pill px-4">Começar</a>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card border-0 shadow-lg h-100 pricing-card featured text-center p-4">
+                <div class="badge bg-primary text-white position-absolute top-0 start-50 translate-middle px-3 py-2 rounded-pill">MAIS VENDIDO</div>
+                <h4 class="fw-bold">⭐ Mensal</h4>
+                <h2 class="display-4 fw-bold">R$ 19,90</h2>
+                <p class="text-muted">por mês</p>
+                <ul class="list-unstyled">
+                    <li>✅ 3 tags ativas</li>
+                    <li>✅ Perfil personalizado</li>
+                    <li>✅ Suporte prioritário</li>
+                    <li>✅ Estatísticas</li>
+                </ul>
+                <a href="{{ url_for('checkout', plano='mensal') }}" class="btn btn-primary rounded-pill px-4">Assinar</a>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card border-0 shadow-sm h-100 pricing-card text-center p-4">
+                <h4 class="fw-bold">👑 Anual</h4>
+                <h2 class="display-4 fw-bold">R$ 199</h2>
+                <p class="text-muted">por ano (economize 16%)</p>
+                <ul class="list-unstyled">
+                    <li>✅ 10 tags ativas</li>
+                    <li>✅ Perfil personalizado</li>
+                    <li>✅ Suporte VIP</li>
+                    <li>✅ Estatísticas avançadas</li>
+                </ul>
+                <a href="{{ url_for('checkout', plano='anual') }}" class="btn btn-success rounded-pill px-4">Assinar</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
